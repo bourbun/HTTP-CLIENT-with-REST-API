@@ -1,40 +1,61 @@
-# Tema 4 PCom - Client Web. Comunicatie cu REST API.
+## Project Title: HTTP Client with REST API
 
-#### Vasilică Andrei 323CC
+### Author: VASILICĂ Andrei
 
-	Implementarea temei a pornit de la scheletul laboratorului 9 de HTTP,
-	preluând funcțiile esențiale de manipulare a datelor și requesturilor HTTP.
+### Overview
 
-### Descrierea Implementării:
+	This project involves the implementation of a web client that uses a REST API
+	to communicate with the server.
 
-	Am început prin a adăuga funcția compute_delete_request pentru a gestiona
-	requesturile de tip DELETE. Clientul funcționează într-o buclă infinită
-	pentru a procesa comenzi de la tastatură, verificând fiecare comandă
-	printr-o funcție dedicată get_command.
+### Implementation Description
 
-	Am utilizat biblioteca kgabis/parson pentru a facilita manipularea
-	formatelor JSON necesare pentru majoritatea comenzilor, facilitând astfel
-	atât compunerea mesajelor de request, cât și procesarea răspunsurilor de la
-	server.
+	The client is designed to run in an infinite loop, where it processes
+	commands from the user. The get_command function identifies and handles each
+	command, and the HTTP operations are performed using specific functions
+	(compute_get_request, compute_post_request, compute_delete_request).
 
-### Procesul:
+	JSON data manipulation is facilitated by the kgabis/parson library, which
+	helps in both composing request messages and processing the responses
+	received from the server.
 
-	Citirea datelor necesare de la tastatură.
-	Inițializarea conexiunii prin deschiderea unui socket.
-	Crearea requesturilor specifice (GET, POST, DELETE).
-	Trimiterea requestului către server și primirea răspunsului.
-	Închiderea conexiunii.
-	Verificarea și tratarea erorilor; afișarea unui mesaj de succes sau eroare.
-	Extragerea datelor relevante din răspuns, precum cookies sau JWT Tokens.
+### Workflow
 
-### Comenzi implementate:
+	Reading data from the keyboard: The client requests the necessary
+	information from the user.
 
-	register: Înregistrarea unui nou utilizator.
-	login: Autentificarea și obținerea unui cookie de sesiune.
-	enter_library: Accesarea bibliotecii virtuale protejată.
-	get_book: Obținerea detaliilor unei cărți.
-	get_books: Listarea tuturor cărților utilizatorului.
-	add_book: Adăugarea unei noi cărți în biblioteca personală.
-	delete_book: Ștergerea unei cărți.
-	logout: efectueaza delogarea utilizatorului
-	exit: efectueaza ieșirea din program
+	Initializing the connection: The connection is established by opening a TCP
+	socket to the specified server.
+
+	Creating requests: Three types of requests are implemented - GET, POST, and
+	DELETE.
+
+	Sending and receiving data: After sending the request, the client waits for
+	and interprets the response from the server.
+
+	Closing the connection: After processing the response, the connection with
+	the server is closed.
+
+	Error handling: Depending on the server's response, error or success
+	messages are displayed.
+
+	Data manipulation: Extracts important information from responses, such as
+	cookies or JWT tokens, for future operations.
+### Implemented Features
+
+	register: Registers a new user in the system.
+
+	login: Authenticates the user and obtains a session cookie.
+
+	enter_library: Accesses the protected virtual library.
+
+	get_book: Gets details about a specific book.
+
+	get_books: Lists all books available to the user.
+
+	add_book: Adds a new book to the personal library.
+
+	delete_book: Deletes a book from the personal library.
+
+	logout: Logs out the current user.
+
+	exit: Exits the client application.
