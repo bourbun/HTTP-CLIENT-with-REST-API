@@ -1,0 +1,40 @@
+# Tema 4 PCom - Client Web. Comunicatie cu REST API.
+
+#### Vasilică Andrei 323CC
+
+	Implementarea temei a pornit de la scheletul laboratorului 9 de HTTP,
+	preluând funcțiile esențiale de manipulare a datelor și requesturilor HTTP.
+
+### Descrierea Implementării:
+
+	Am început prin a adăuga funcția compute_delete_request pentru a gestiona
+	requesturile de tip DELETE. Clientul funcționează într-o buclă infinită
+	pentru a procesa comenzi de la tastatură, verificând fiecare comandă
+	printr-o funcție dedicată get_command.
+
+	Am utilizat biblioteca kgabis/parson pentru a facilita manipularea
+	formatelor JSON necesare pentru majoritatea comenzilor, facilitând astfel
+	atât compunerea mesajelor de request, cât și procesarea răspunsurilor de la
+	server.
+
+### Procesul:
+
+	Citirea datelor necesare de la tastatură.
+	Inițializarea conexiunii prin deschiderea unui socket.
+	Crearea requesturilor specifice (GET, POST, DELETE).
+	Trimiterea requestului către server și primirea răspunsului.
+	Închiderea conexiunii.
+	Verificarea și tratarea erorilor; afișarea unui mesaj de succes sau eroare.
+	Extragerea datelor relevante din răspuns, precum cookies sau JWT Tokens.
+
+### Comenzi implementate:
+
+	register: Înregistrarea unui nou utilizator.
+	login: Autentificarea și obținerea unui cookie de sesiune.
+	enter_library: Accesarea bibliotecii virtuale protejată.
+	get_book: Obținerea detaliilor unei cărți.
+	get_books: Listarea tuturor cărților utilizatorului.
+	add_book: Adăugarea unei noi cărți în biblioteca personală.
+	delete_book: Ștergerea unei cărți.
+	logout: efectueaza delogarea utilizatorului
+	exit: efectueaza ieșirea din program
